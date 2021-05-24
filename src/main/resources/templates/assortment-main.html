@@ -9,6 +9,18 @@
 <div class="container py-3">
     <header th:insert="blocks/header :: header"></header>
 
+    <script src="sort_menu"></script><div class="sort_menu">
+    <input type="text" id="mySearch" onkeyup="sort_menu()" placeholder="Search.." title="Type in a category">
+    <ul id="myMenu">
+        <li><a href="../../../../../resources/templates/assortment-details.html/"></a><img>Беговые дорожки</li>
+        <li><a href="assortment-details.html"></a>Велотренажер</li>
+        <li><a href="assortment-details.html"></a>Эллиптический тренажер</li>
+        <li><a href="assortment-details.html"></a>Гребной тренажёр</li>
+        <li><a href="assortment-details.html"></a>Гиперэкстензия</li>
+        <li><a href="assortment-details.html"></a>тестовая</li>
+    </ul>
+    </div>
+
     <div class="container mt-5">
         <h1>Ассортимент</h1>
         <div th:each="el : ${posts}" class="alert alert-info mt-2">
