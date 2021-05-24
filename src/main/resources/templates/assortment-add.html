@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Ассортимент</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container py-3">
+  <header th:insert="blocks/header :: header"></header>
+
+  <div class="container mt-5 md-5">
+    <h1>Добавление тренажёра</h1>
+    <form action="/assortment/add" method="post">
+      <input type="text" name="name" placeholder="Введите название тренажёра" class="form-control"><br>
+      <input type="text" name="category" placeholder="Введите категорию тренажёра" class="form-control"><br>
+      <input type="text" name="electricity_required" placeholder="Нужно ли ему электропитание? (Да/Нет)" class="form-control"><br>
+      <input type="text" name="weight_equipment" placeholder="Введите вес тренажёра" class="form-control"><br>
+      <input type="text" name="max_weight_user" placeholder="Введите максимально допустимый вес пользователя" class="form-control"><br>
+      <input type="text" name="price" placeholder="Введите цену тренажёра" class="form-control"><br>
+      <textarea name="about_equipment" placeholder="Введите описание тренажёра" class="form-control"></textarea><br>
+      <button type="submit" class="btn btn-success">Добавить тренажёр</button>
+    </form>
+  </div>
+
+  <footer th:insert="blocks/footer :: footer"></footer>
+
+</div>
+</body>
+</html>
