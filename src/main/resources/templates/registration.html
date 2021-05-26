@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <link href="style/registration.css" media="screen" rel="stylesheet">
@@ -114,6 +114,12 @@
   </style>
 </head>
 <body>
+<script>
+  function length(){
+    var password = $('#username').val().length;
+    console.log(password);
+  }
+</script>
 <script src="js/password.js"></script>
 <div class="container mregister">
   <div id="login">
@@ -127,17 +133,18 @@
         <input class="input" id="email" name="email" size="32" type="email" value=""></label></p>
 
       <p><label for="user_pass">Имя пользователя(8 символов)<br>
-        <input class="input" id="username" name="login" size="20" type="text" value=""></label></p>
+        <input class="input" id="username" minlength="8" maxlength="8" name="login" size="20" type="text" value=""></label></p>
 
       <p><label for="user_pass">Пароль(8 символов)<br>
-        <input class="input password" id="password" name="password" size="32" type="password" value=""></label></p>
+        <input class="input password" minlength="8" maxlength="8" id="password" name="password" size="32" type="password" value=""></label></p>
       <label><input type="checkbox" class="password-checkbox"> Показать пароль</label>
 
-      <p class="submit"><input class="button" id="register" name= "register" type="submit" value="Зарегистрироваться"></p>
+      <p class="submit" onclick="length()"><input class="button" id="register" name= "register" type="submit" value="Зарегистрироваться"></p>
 
       <p class="regtext">Уже зарегистрированы? <a href= "log_in">Введите имя пользователя!</a></p>
     </form>
   </div>
 </div>
+
 </body>
 </html>

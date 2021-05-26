@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
 @Controller
 public class MainController {
     @GetMapping("/")
@@ -55,10 +57,17 @@ public class MainController {
 
     @PostMapping("registration_add_user")
     public String assortmentPostAdd(@RequestParam String name, @RequestParam String email,
-                                    @RequestParam String login, @RequestParam String password, Model model){
+                                    @RequestParam String login, @RequestParam String password, Model model) {
         User user = new User(name, email, login, password);
 
         userRepository.save(user);
         return "redirect:/assortment";
+    }
+
+    @GetMapping("/registration_add_user")
+    public String LogIn(@RequestParam String username, @RequestParam String password, Model model){
+
+        ArrayList<User> login = userRepository.findByLogin(username);
+        return "Done";
     }
 }
