@@ -1,5 +1,9 @@
 package com.sportEquipment.kursov.controllers;
 
+import com.sportEquipment.kursov.models.User;
+import com.sportEquipment.kursov.repo.PostRepository;
+import com.sportEquipment.kursov.repo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,10 +50,14 @@ public class MainController {
         return "log_in";
     }
 
-    @RequestMapping("registration_add_user")
+    @Autowired
+    private UserRepository userRepository;
+
+    @PostMapping("registration_add_user")
     public String assortmentPostAdd(@RequestParam String name, @RequestParam String email,
                                     @RequestParam String login, @RequestParam String password, Model model){
         User user = new User(name, email, login, password);
+
         userRepository.save(user);
         return "redirect:/assortment";
     }
