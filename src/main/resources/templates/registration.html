@@ -6,13 +6,119 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+  <style>
+    body {
+      background: #efefef;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    a {
+      color: #4795ea;
+      font-weight: 400;
+
+    }
+
+    span {
+      font-weight: 300;
+      color: #f58220;
+    }
+
+    .mlogin {
+      margin: 170px auto 0;
+    }
+
+    .mregister {
+      margin: 80px auto 0;
+    }
+
+    .error {
+      margin: 40px auto 0;
+      border: 1px solid #777;
+      padding: 3px;
+      color: #fff;
+      text-align: center;
+      width: 650px;
+      background: #f58220;
+    }
+
+    .regtext {
+      font-size: 13px;
+      margin-top: 26px;
+      color: #4795ea;
+    }
+
+    .container {
+      padding: 25px 16px 25px 10px;
+      font-weight: 400;
+      overflow: hidden;
+      width: 350px;
+      height: auto;
+      background: #fff;
+    }
+
+    .container h1 {
+      color: #4795ea;
+      text-align: center;
+      font-weight: 300;
+      border: 1px dashed #777;
+      margin-top: 13px;
+    }
+
+    .container label {
+      color: #4795ea;
+      font-size: 14px;
+    }
+
+    #login {
+      width: 320px;
+      margin: auto;
+      padding-bottom: 15px;
+    }
+
+    .container form .input,.container input[type=text],.container input[type=password],.container input[type=e] {
+      background: #fbfbfb;
+      font-size: 24px;
+      line-height: 1;
+      width: 100%;
+      padding: 3px;
+      margin: 0 6px 5px 0;
+      outline: none;
+      border: 1px solid #d9d9d9;
+    }
+
+    .container form .input:focus {
+      border: 1px solid #4795ea;
+    }
+
+    .button{
+      background: #4795ea;
+      color: #fff;
+      padding: 7px 12px;
+      -webkit-border-radius:4px;
+      moz-border-radius:4px;
+      border-radius:4px;
+      float: right;
+      cursor: pointer;
+
+    }
+
+    .button:hover{
+      background: #4CAF50;
+    }
+    footer {
+      color: #777;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 <script src="js/password.js"></script>
 <div class="container mregister">
   <div id="login">
     <h1>Регистрация</h1>
-    <form action=" " id="registerform" method="post" name="registerform">
+    <form action="registration_add_user" id="registerform" method="POST" name="registerform">
 
       <p><label for="user_login">Полное имя<br>
         <input class="input" id="full_name" name="name" size="32" type="text" value=""></label></p>
@@ -29,7 +135,7 @@
 
       <p class="submit"><input class="button" id="register" name= "register" type="submit" value="Зарегистрироваться"></p>
 
-      <p class="regtext">Уже зарегистрированы? <a href= "log_in.php">Введите имя пользователя!</a></p>
+      <p class="regtext">Уже зарегистрированы? <a href= "log_in">Введите имя пользователя!</a></p>
     </form>
   </div>
 </div>
