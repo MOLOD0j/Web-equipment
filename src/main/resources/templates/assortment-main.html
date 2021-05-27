@@ -51,6 +51,7 @@
 </body>
 </html>-->
 
+
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -84,6 +85,7 @@
     <h2>Поиск по категории</h2>
     <select>
         <optgroup label="Кардиотренажеры">
+            <option>Выберете категорию</option>
             <option>БЕГОВЫЕ ДОРОЖКИ</option>
             <option>ЭЛЛИПТИЧЕСКИЕ ТРЕНАЖЕРЫ</option>
             <option>СТЕППЕРЫ</option>
@@ -178,7 +180,8 @@
     }
     document.querySelector("select").addEventListener('change', function (e) {
         var input, filter, ul, li, a, i;
-        input = document.getElementByTagName("mySearch");
+        input = document.getElementsByTagName("select")[0];
+        console.log(input.value);
         filter = input.value.toUpperCase();
         ul = document.getElementById("myMenu");
         li = ul.getElementsByTagName("li");
