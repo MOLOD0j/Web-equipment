@@ -28,10 +28,10 @@ public class MainController {
         return "about";
     }
 
-    @GetMapping("/support")
+    @GetMapping("/gallery")
     public String support(Model model) {
-        model.addAttribute("title", "Помощь");
-        return "support";
+        model.addAttribute("title", "Галерея");
+        return "gallery";
     }
 
     @GetMapping("/FAQ")
