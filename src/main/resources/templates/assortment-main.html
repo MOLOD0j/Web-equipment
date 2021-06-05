@@ -84,7 +84,7 @@
     <input type="text" id="mySearch" onkeyup="sort_menu()" placeholder="Поиск" class="form-control">
     <h2>Поиск по категории</h2>
     <select>
-        <option selected placeholder="Весь ассортимент"></option>
+        <option selected>Весь ассортимент</option>
         <optgroup label="Кардиотренажеры">
             <option>БЕГОВЫЕ ДОРОЖКИ</option>
             <option>ЭЛЛИПТИЧЕСКИЕ ТРЕНАЖЕРЫ</option>
@@ -186,6 +186,12 @@
         ul = document.getElementById("myMenu");
         li = ul.getElementsByTagName("li");
         var div = document.getElementsByClassName("alert-info");
+        if (input.value == "Весь ассортимент"){
+            for (i = 0; i < li.length; i++) {
+                div[i].style.display = "";
+            }
+            return;
+        }
         for (i = 0; i < li.length; i++) {
             a = li[i].getElementsByTagName("p")[0];
             if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {

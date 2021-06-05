@@ -1,6 +1,8 @@
 package com.sportEquipment.kursov.controllers;
 
+import com.sportEquipment.kursov.models.Admin;
 import com.sportEquipment.kursov.models.User;
+import com.sportEquipment.kursov.repo.AdminRepository;
 import com.sportEquipment.kursov.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +19,21 @@ import java.util.List;
 @Controller
 public class MainController {
     @GetMapping("/")
+    public String beginner(Model model) {
+        model.addAttribute("title", "Главная старница");
+        return "beginner";
+    }
+
+    @GetMapping("/home")
     public String home(Model model) {
         model.addAttribute("title", "Главная старница");
         return "home";
+    }
+
+    @GetMapping("/home_admin")
+    public String home_admin(Model model) {
+        model.addAttribute("title", "Главная старница");
+        return "home_admin";
     }
 
     @GetMapping("/about")
@@ -29,9 +43,15 @@ public class MainController {
     }
 
     @GetMapping("/gallery")
-    public String support(Model model) {
+    public String gallery(Model model) {
         model.addAttribute("title", "Галерея");
         return "gallery";
+    }
+
+    @GetMapping("/gallery_admin")
+    public String gallery_admin(Model model) {
+        model.addAttribute("title", "Галерея");
+        return "gallery_admin";
     }
 
     @GetMapping("/FAQ")
@@ -40,7 +60,8 @@ public class MainController {
         return "FAQ";
     }
 
-    @RequestMapping("/registration")
+
+    /*@RequestMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("title", "Регистрация");
         return "registration";
@@ -58,7 +79,104 @@ public class MainController {
         return "redirect:/assortment";
     }
 
+    @GetMapping("/who_are_you")
+    public String who_are_you(Model model) {
+        model.addAttribute("title", "Старница выбора типа пользователя");
+        return "who_are_you";
+    }
+
+
     @RequestMapping("/log_in")
+    public String log_in(Model model) {
+        model.addAttribute("title", "Логин");
+        model.addAttribute("message", "Hello Spring MVC Framework!");
+        return "log_in";
+    }
+    @RequestMapping("/log_in_back")
+    public String LogIn(@RequestParam String username, @RequestParam String password, Model model){
+        try{
+            ArrayList<User> login = userRepository.findByLogin(username);
+            List<String> all = Arrays.asList(login.get(0).getPassword(), password ,login.get(0).getLogin(), username);
+            System.out.println(all);
+
+            String par =  login.get(0).getPassword();
+            String log = login.get(0).getLogin();
+            *//*Boolean parEq = par.equals(password);
+            Boolean logEq = username.equals(log);*//*
+            if (par.equals(password) && username.equals(log)){
+            //model.addAttribute("login", all);
+                return "redirect:/assortment";
+            }
+            else{
+                model.addAttribute("login", all);
+                return "log_in";
+            }
+        }
+        catch(Exception e){
+            return "log_in";
+        }
+
+    }*/
+
+
+
+//    ----------------------------------------------------------------------------------------------------------
+/*@Autowired
+private AdminRepository adminRepository;
+
+    @RequestMapping("/registration_admin")
+    public String registrationAdmin(Model model) {
+        model.addAttribute("title", "Регистрация");
+        return "registration_admin";
+    }
+
+    @PostMapping("registration_add_admin")
+    public String newAdminAdd(@RequestParam String name, @RequestParam String email,
+                              @RequestParam String login, @RequestParam String password, Model model) {
+        Admin admin = new Admin(name, email, login, password);
+
+        adminRepository.save(admin);
+        return "redirect:/assortment";
+    }
+
+    @RequestMapping("/login_in_admin")
+    public String login_in_admin(Model model) {
+        model.addAttribute("title", "Логин");
+        model.addAttribute("message", "Hello Spring MVC Framework!");
+        return "login_in_admin";
+    }
+
+
+
+    @RequestMapping("/log_in_admin_back")
+    public String LogInAdmin(@RequestParam String adminname, @RequestParam String password, Model model){
+        try{
+            ArrayList<Admin> login = adminRepository.findByLogin(adminname);
+            List<String> all = Arrays.asList(login.get(0).getPassword(), password ,login.get(0).getLogin(), adminname);
+            System.out.println(all);
+
+            String par =  login.get(0).getPassword();
+            String log = login.get(0).getLogin();
+            *//*Boolean parEq = par.equals(password);
+            Boolean logEq = username.equals(log);*//*
+            if (par.equals(password) && adminname.equals(log)){
+                //model.addAttribute("login", all);
+                return "redirect:/assortment";
+            }
+            else{
+                //model.addAttribute("login", all);
+                return "login_in_admin";
+            }
+        }
+        catch(Exception e){
+            return "login_in_admin";
+        }
+
+    }*/
+    //    ----------------------------------------------------------------------------------------------------------
+
+
+    /*@RequestMapping("/log_in")
     public String log_in(Model model) {
         model.addAttribute("title", "Логин");
         model.addAttribute("message", "Hello Spring MVC Framework!");
@@ -80,6 +198,12 @@ public class MainController {
         catch(Exception e){
             return "log_in";
         }
-    }
+    }*/
+
+
+
+
+
+
 }
 

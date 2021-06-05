@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container py-3">
-  <header th:insert="blocks/header :: header"></header>
+  <header th:insert="blocks/header_admin :: header_admin"></header>
 
   <div class="container mt-5">
     <div th:each="el : ${post}" class="alert alert-info mt-2">
@@ -18,6 +18,10 @@
       <p><b>Максимально допустимый вес человека: </b> <span th:text="${el.max_weight_user} + ${'кг'}" /></p>
       <p><b>Цена данного тренажёра: </b> <span th:text="${el.price} + ${'₽'}" /></p>
       <p><b>Описание: </b> <span th:text="${el.about_equipment}" /></p>
+      <a th:href="'/assortment_admin/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a><br><br>
+      <form th:action="'/assortment_admin/' + ${el.id} + '/remove'" method="post">
+        <button class="btn btn-warning" type="submit">Удалить</button>
+      </form>
     </div>
   </div>
 

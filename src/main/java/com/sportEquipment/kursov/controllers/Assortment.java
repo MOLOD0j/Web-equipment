@@ -26,6 +26,13 @@ public class Assortment {
         return "assortment-main";
     }
 
+    @GetMapping("/assortment_admin")
+    public String assortmentAdmin(Model model){
+        Iterable<Post> posts = postRepository.findAll();
+        model.addAttribute("posts", posts);
+        return "assortment-main-admin";
+    }
+
     @GetMapping("/assortment/add")
     public String assortmentAdd(Model model){
         return "assortment-add";
@@ -38,8 +45,9 @@ public class Assortment {
                                     @RequestParam String about_equipment, Model model){
         Post post = new Post(name, category, electricity_required, weight_equipment, max_weight_user, price, about_equipment);
         postRepository.save(post);
-        return "redirect:/assortment";
+        return "redirect:/assortment_admin";
     }
+
 
     @GetMapping("/assortment/{id}")
     public String assortmentDetail(@PathVariable(value = "id") long id, Model model){
@@ -54,10 +62,24 @@ public class Assortment {
         return "assortment-details";
     }
 
-    @GetMapping("/assortment/{id}/edit")
+
+    @GetMapping("/assortment_admin/{id}")
+    public String assortmentDetailAdmin(@PathVariable(value = "id") long id, Model model){
+        if(!postRepository.existsById(id)){
+            return "redirect:/assortment_admin";
+        }
+
+        Optional<Post> post =  postRepository.findById(id);
+        ArrayList<Post> res = new ArrayList<>();
+        post.ifPresent(res::add);
+        model.addAttribute("post", res);
+        return "assortment-details-admin";
+    }
+
+    @GetMapping("/assortment_admin/{id}/edit")
     public String assortmentEdit(@PathVariable(value = "id") long id, Model model){
         if(!postRepository.existsById(id)){
-            return "redirect:/assortment";
+            return "redirect:/assortment_admin";
         }
 
         Optional<Post> post =  postRepository.findById(id);
@@ -67,7 +89,7 @@ public class Assortment {
         return "assortment-edit";
     }
 
-    @PostMapping("/assortment/{id}/edit")
+    @PostMapping("/assortment_admin/{id}/edit")
     public String assortmentPostUpdate(@PathVariable(value = "id") long id, @RequestParam String name, @RequestParam String category,
                                        @RequestParam String electricity_required, @RequestParam Integer weight_equipment,
                                        @RequestParam Integer max_weight_user, @RequestParam Integer price,
@@ -82,14 +104,14 @@ public class Assortment {
         post.setAbout_equipment(about_equipment);
         postRepository.save(post);
 
-        return "redirect:/assortment";
+        return "redirect:/assortment_admin";
     }
 
-    @PostMapping("/assortment/{id}/remove")
+    @PostMapping("/assortment_admin/{id}/remove")
     public String assortmentPostDelete(@PathVariable(value = "id") long id, Model model){
         Post post = postRepository.findById(id).orElseThrow();
         postRepository.delete(post);
 
-        return "redirect:/assortment";
+        return "redirect:/assortment_admin";
     }
 }

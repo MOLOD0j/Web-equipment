@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public interface UserRepository extends CrudRepository<User, Long> {
     ArrayList<User> findByLogin(String username);
-
-    ArrayList<User> findAllByLogin(String username);
 }
+/*
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByUsername(String username);
+}*/

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="${title}"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container py-3">
+  <header th:insert="blocks/header_admin :: header_admin"></header>
+
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Тренажёры дома!</h1>
+    <p class="fs-5 text-muted">Зачем куда то ходить, если можно заниматься дома</p>
+  </div>
+
+
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Beginner</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$30<small class="text-muted fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Вы получите доступ к тренажёрам начального уровня</li>
+            </ul>
+            <!--                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>-->
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Advanced</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$70<small class="text-muted fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Вы сможете брать в аренду любые тренажёры не прывыщающие стоимость ващей подписки</li>
+            </ul>
+            <!--                        <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>-->
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-white bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Pro</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$150<small class="text-muted fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Для вас открыт весь список тренажёров + бесплатные видео уроки с тренером</li>
+            </ul>
+            <!--                        <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="display-6 text-center mb-4">Compare plans</h2>
+
+    <div class="table-responsive">
+      <table class="table text-center">
+        <thead>
+        <tr>
+          <th style="width: 34%;"></th>
+          <th style="width: 22%;">Beginner</th>
+          <th style="width: 22%;">Advanced</th>
+          <th style="width: 22%;">Pro</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row" class="text-start">Доступ к тренажёром начального уровня</th>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check">
+            <svg id="check" viewBox="0 0 16 16">
+              <title>Check</title>
+              <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+            </svg></use></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-start">Доступ к тренажёром средняго уровня</th>
+          <td></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-start">Доступ к тренажёром повешенного уровня</th>
+          <td></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+        </tr>
+        </tbody>
+
+        <tbody>
+        <tr>
+          <th scope="row" class="text-start">Бесплатная установка оборудования</th>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-start">Увеличинная кредитная линия</th>
+          <td></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-start">Видео уроки с тренером</th>
+          <td></td>
+          <td></td>
+          <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer th:insert="blocks/footer :: footer"></footer>
+</div>
+</body>
+</html>
